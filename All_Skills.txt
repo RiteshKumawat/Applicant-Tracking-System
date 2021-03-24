@@ -1,0 +1,14 @@
+C
+C++
+Java
+Javascript
+Spring
+Data Structures
+Algorithms
+Html
+Css
+jQuery
+Oracle
+bootstrap
+reactjs
+wordpress
