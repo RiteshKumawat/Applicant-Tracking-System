@@ -19,11 +19,11 @@ private int id;
 @Column(name = "name")
 private String name;
 @Column(name = "email_id")
-private String email_id;
+private String manager_email_id;
 @Column(name = "phone")
 private String phone;
-@Column(name = "password")
-private String password;
+@Column(name = "manager_password")
+private String manager_password;
 
 
 @ManyToMany(mappedBy="candidate_manager_set")
@@ -42,11 +42,11 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public String getEmail_id() {
-	return email_id;
+public String getmanager_email_id() {
+	return manager_email_id;
 }
-public void setEmail_id(String email_id) {
-	this.email_id = email_id;
+public void setmanager_email_id(String manager_email_id) {
+	this.manager_email_id = manager_email_id;
 }
 public String getPhone() {
 	return phone;
@@ -54,11 +54,11 @@ public String getPhone() {
 public void setPhone(String phone) {
 	this.phone = phone;
 }
-public String getPassword() {
-	return password;
+public String getmanager_password() {
+	return manager_password;
 }
-public void setPassword(String password) {
-	this.password = password;
+public void setmanager_password(String manager_password) {
+	this.manager_password = manager_password;
 }
 public String getDepartment() {
 	return department;
@@ -74,13 +74,13 @@ public void setTeam_size(int team_size) {
 }
 String department;
 int team_size;
-public Manager(int id, String name, String email_id, String phone, String password, String department, int team_size) {
+public Manager(int id, String name, String manager_email_id, String phone, String manager_password, String department, int team_size) {
 	super();
 	this.id = id;
 	this.name = name;
-	this.email_id = email_id;
+	this.manager_email_id = manager_email_id;
 	this.phone = phone;
-	this.password = password;
+	this.manager_password = manager_password;
 	this.department = department;
 	this.team_size = team_size;
 }

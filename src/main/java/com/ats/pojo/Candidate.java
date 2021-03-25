@@ -27,19 +27,19 @@ private int id;
 private String name;
 
 @Column(name = "email_id")
-private String email_id;
+private String candidate_email_id;
 
-@Column(name = "id")
+@Column(name = "phone_number")
 private String phoneNumber;
-@Column(name = "id")
-private String password;
-@Column(name = "id")
+@Column(name = "password")
+private String candidate_password;
+@Column(name = "dob")
 private Date dateOfBirth;
-@Column(name = "id")
+@Column(name = "address")
 private String address_city;
-@Column(name = "id")
+@Column(name = "education")
 private String education_degree;
-@Column(name = "id")
+@Column(name = "experience")
 private int experience;
 
 @ManyToMany(cascade = { CascadeType.ALL })
@@ -68,14 +68,14 @@ public Candidate() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Candidate(int id, String name, String email_id, String phoneNumber, String password, Date dateOfBirth,
+public Candidate(int id, String name, String candidate_email_id, String phoneNumber, String candidate_password, Date dateOfBirth,
 		String address_city, String education_degree, int experience) {
 	super();
 	this.id = id;
 	this.name = name;
-	this.email_id = email_id;
+	this.candidate_email_id = candidate_email_id;
 	this.phoneNumber = phoneNumber;
-	this.password = password;
+	this.candidate_password = candidate_password;
 	this.dateOfBirth = dateOfBirth;
 	this.address_city = address_city;
 	this.education_degree = education_degree;
@@ -91,10 +91,10 @@ public void setName(String name) {
 	this.name = name;
 }
 public String getEmailID() {
-	return email_id;
+	return candidate_email_id;
 }
-public void setEmailID(String email_id) {
-	this.email_id = email_id;
+public void setEmailID(String candidate_email_id) {
+	this.candidate_email_id = candidate_email_id;
 }
 public String getPhoneNumber() {
 	return phoneNumber;
@@ -102,11 +102,11 @@ public String getPhoneNumber() {
 public void setPhoneNumber(String phoneNumber) {
 	this.phoneNumber = phoneNumber;
 }
-public String getPassword() {
-	return password;
+public String getcandidate_password() {
+	return candidate_password;
 }
-public void setPassword(String password) {
-	this.password = password;
+public void setcandidate_password(String candidate_password) {
+	this.candidate_password = candidate_password;
 }
 public Date getDateOfBirth() {
 	return dateOfBirth;
