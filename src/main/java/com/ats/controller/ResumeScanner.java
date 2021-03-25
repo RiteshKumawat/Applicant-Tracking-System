@@ -21,7 +21,9 @@ public class ResumeScanner {
 		{
 			if(line.toLowerCase().contains(skill.toLowerCase()))
 			{
-				System.out.println("SKILL : "+skill);
+				//System.out.println("Line : "+line);
+
+				System.out.println("SKILL : "+skill);	
 				employees_skills_set.add(skill);
 			}
 		}
@@ -55,7 +57,7 @@ public class ResumeScanner {
 		pdfTextStripper.setStartPage(1);
 		pdfTextStripper.setEndPage(2);
 		String content = null;
-		PDDocument document = PDDocument.load(new File("request.pdf"));
+		PDDocument document = PDDocument.load(new File("C:\\Users\\rkumawat3\\Downloads\\Sample Resume.pdf"));
 		document.getClass();
 		String pdfFileInText = pdfTextStripper.getText(document);
 		String[] lines = pdfFileInText.split("\\r\\n\\r\\n");
