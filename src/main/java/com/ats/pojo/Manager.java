@@ -7,12 +7,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "manager")
 public class Manager {
+@Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name = "id")
 private int id;
@@ -22,9 +24,13 @@ private String name;
 private String manager_email_id;
 @Column(name = "phone")
 private String phone;
-@Column(name = "manager_password")
+@Column(name = "password")
 private String manager_password;
 
+@Column(name = "department")
+String department;
+@Column(name = "team_size")
+int team_size;
 
 @ManyToMany(mappedBy="candidate_manager_set")
 private Set<Candidate> candidatesSet= new HashSet<Candidate>();
@@ -72,8 +78,6 @@ public int getTeam_size() {
 public void setTeam_size(int team_size) {
 	this.team_size = team_size;
 }
-String department;
-int team_size;
 public Manager(int id, String name, String manager_email_id, String phone, String manager_password, String department, int team_size) {
 	super();
 	this.id = id;

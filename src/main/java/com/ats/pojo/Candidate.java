@@ -90,24 +90,14 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public String getEmailID() {
-	return candidate_email_id;
-}
-public void setEmailID(String candidate_email_id) {
-	this.candidate_email_id = candidate_email_id;
-}
+
 public String getPhoneNumber() {
 	return phoneNumber;
 }
 public void setPhoneNumber(String phoneNumber) {
 	this.phoneNumber = phoneNumber;
 }
-public String getcandidate_password() {
-	return candidate_password;
-}
-public void setcandidate_password(String candidate_password) {
-	this.candidate_password = candidate_password;
-}
+
 public Date getDateOfBirth() {
 	return dateOfBirth;
 }
@@ -144,6 +134,25 @@ public Set<Manager> getCandidate_manager_set() {
 }
 public void setCandidate_manager_set(Set<Manager> candidate_manager_set) {
 	this.candidate_manager_set = candidate_manager_set;
+}
+@Override
+public String toString() {
+	return "Candidate [id=" + id + ", name=" + name + ", candidate_email_id=" + candidate_email_id + ", phoneNumber="
+			+ phoneNumber + ", candidate_password=" + candidate_password + ", dateOfBirth=" + dateOfBirth
+			+ ", address_city=" + address_city + ", education_degree=" + education_degree + ", experience=" + experience
+			+ ", candidate_skill_set=" + candidate_skill_set + ", candidate_manager_set=" + candidate_manager_set + "]";
+}
+public String getCandidate_email_id() {
+	return candidate_email_id;
+}
+public void setCandidate_email_id(String candidate_email_id) {
+	this.candidate_email_id = candidate_email_id;
+}
+public String getCandidate_password() {
+	return candidate_password;
+}
+public void setCandidate_password(String candidate_password) {
+	this.candidate_password = candidate_password;
 }
 
 }

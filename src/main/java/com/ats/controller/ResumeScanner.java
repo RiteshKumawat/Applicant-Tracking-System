@@ -28,7 +28,7 @@ public class ResumeScanner {
 			}
 		}
 	}
-	
+
 	private void populateSkillsSet() {
 		String skill;
 		try  
