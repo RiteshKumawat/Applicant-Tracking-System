@@ -12,3 +12,50 @@ Oracle
 bootstrap
 reactjs
 wordpress
+WebAssembly
+Node.js
+Node
+NodeJS
+Typescript
+Python
+PHP
+Kotlin
+Swift
+Rust
+Dart
+Ruby
+Ruby on Rails
+Clojur
+Assembly
+COBOL
+Elixir
+Go Lang
+F#
+Perl
+SQL
+Go
+MATLAB
+R
+Angular
+AngularJS
+.NET
+C#.NET
+C#
+Visual Basic
+SAS
+Scala
+ABAP
+Fortran
+Lisp
+Groovy
+Maven
+Gradle
+Ada
+ML
+AI
+Machine Learning
+Artificial Intelligance
+Haskell
+Clojure
+Bash
+Git

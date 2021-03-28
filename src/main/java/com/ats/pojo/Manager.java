@@ -1,39 +1,19 @@
 package com.ats.pojo;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "manager")
-public class Manager {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-@Column(name = "id")
+public class Manager implements Serializable {
 private int id;
-@Column(name = "name")
 private String name;
-@Column(name = "email_id")
 private String manager_email_id;
-@Column(name = "phone")
 private String phone;
-@Column(name = "password")
 private String manager_password;
-
-@Column(name = "department")
 String department;
-@Column(name = "team_size")
 int team_size;
 
-@ManyToMany(mappedBy="candidate_manager_set")
-private Set<Candidate> candidatesSet= new HashSet<Candidate>();
 
 
 public int getId() {

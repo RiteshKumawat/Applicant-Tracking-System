@@ -9,4 +9,5 @@ public void addCandidate(Candidate candidate);
 public List<Candidate> getAllCandidates();
 public boolean isCandidateExisits(String email);
 public String getPassword(String email);
+public int getCandidateId(String email);
 }

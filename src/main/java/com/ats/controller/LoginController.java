@@ -22,9 +22,12 @@ public class LoginController {
 @PostMapping("/candidate")
 public ServiceResponse login_candidate(Candidate candidate)
 {
-	System.out.println("Yaha pe Aaya");
+	System.out.println("Yaha pe Aaya"+candidate.getEmail_id());
+	System.out.println("Yaha pe Aaya"+candidate.getPassword());
+	
 	CandidateDAO candidateDAO  = new CandidateDAO();
-	boolean result =  candidateDAO.isCandidateExisits(candidate.getCandidate_email_id());
+	boolean result =  candidateDAO.isCandidateExisits(candidate.getEmail_id());
+	System.err.println("BOLEN RES : "+result);
 	ServiceResponse serviceResponse = new ServiceResponse();
 	if(result == false)
 	{
@@ -33,14 +36,17 @@ public ServiceResponse login_candidate(Candidate candidate)
 		serviceResponse.exception = "No Records Found";
 		return serviceResponse;
 	}
-	String db_password  = candidateDAO.getPassword(candidate.getCandidate_email_id());
-	if(!db_password.equals(candidate.getCandidate_password()))
+	String db_password  = candidateDAO.getPassword(candidate.getEmail_id());
+	System.out.println("DB PSDD : "+db_password);
+	if(!db_password.equals(candidate.getPassword()))
 	{
 		serviceResponse.success = false;
 		serviceResponse.isException = false;
 		serviceResponse.exception = "Username or password is wrong";
 		return serviceResponse;
 	}
+	
+	System.out.println("CREDinatial is Correct");
 	return serviceResponse;
 }
 

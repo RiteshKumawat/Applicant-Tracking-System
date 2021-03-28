@@ -1,5 +1,4 @@
 $(document).ready(function($) {
-	alert("GSsdg");	
 	configure_page();
 
 	configure_buttons();
@@ -34,48 +33,105 @@ $("#manager-login-button").click( check_manager_credentials );
 }
 
 
-function check_candidate_credentials() {
+function check_candidate_credentials(event) {
+event.preventDefault();
  var email = $("#candidate_email_id").val().trim();
  var password  = $("#candidate_password").val().trim();
 
 
  var credintials_json = {
- 	"candidate_email_id" : email,
+ 	"email_id" : email,
 
- 	"candidate_password" : password
+ 	"password" : password
  }
 
 
-alert(JSON.stringify(credintials_json));
+console.log(JSON.stringify(credintials_json));
 
         if( email != "" && password != "" ){
             $.ajax({
-                url:'login/candidate',
+                url:'/login/candidate',
                 type:'post',
                 data: credintials_json,
                 success:function(data){
-                    alert(JSON.stringify(data));
-                
+                    console.log("kaka : "+JSON.stringify(data));  
                     if(data.success==true){
-                    	alert("success")
-                        window.location = "/manager/"+email+"";
+                    	console.log("success")
+                        send_To_Candidate_Dashboard(email);
+                        //window.location = "/dashboard/candidate/"+email+"";
                     }else{
                         msg = "Invalid username and password!";
-                        alert("error");
+                        console.log("error");
                     	show_error_message(msg);
                     }
                     
                 }});
 }
 }
-function check_manager_credentials()
+function check_manager_credentials(event)
 {
+
+event.preventDefault();
+ var email = $("#manager_email_id").val().trim();
+ var password  = $("#manager_password").val().trim();
+
+
+ var credintials_json = {
+    "manager_email_id" : email,
+
+    "manager_password" : password
+ }
+
+
+console.log(JSON.stringify(credintials_json));
+
+        if( email != "" && password != "" ){
+            $.ajax({
+                url:'/login/manager',
+                type:'post',
+                data: credintials_json,
+                success:function(data){
+                    console.log("Manager Data : "+JSON.stringify(data));  
+                    if(data.success==true){
+                        console.log("success")
+                        send_To_Manager_Dashboard(email);
+                        //window.location = "/dashboard/candidate/"+email+"";
+                    }else{
+                        msg = "Invalid username and password!";
+                        console.log("error");
+                        show_error_message(msg);
+                    }
+                    
+                }});
+}
+
 
 }
 
+
+
+
+function send_To_Candidate_Dashboard(email)
+{
+    console.log("go to dashboard");
+    sessionStorage.setItem("email_id", email);
+    window.location = "CandidateDashboard.html";
+}
+
+
+
+
+function send_To_Manager_Dashboard(email)
+{
+    console.log("go to dashboard");
+    sessionStorage.setItem("email_id", email);
+    window.location = "ManagerDashboard.html";
+}
+
+
 function show_error_message(msg)
 {
-alert(msg);
+console.log(msg);
 $("#message").text(msg);
 $("#message").show();
 }

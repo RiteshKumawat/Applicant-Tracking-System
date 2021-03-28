@@ -1,158 +1,102 @@
 package com.ats.pojo;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.sql.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.TemporalType;
 
-@Entity
-@Table(name = "candidate")
-public class Candidate {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
-@Column(name = "id")
-private int id;
-
-@Column(name = "name")
-private String name;
-
-@Column(name = "email_id")
-private String candidate_email_id;
-
-@Column(name = "phone_number")
-private String phoneNumber;
-@Column(name = "password")
-private String candidate_password;
-@Column(name = "dob")
-private Date dateOfBirth;
-@Column(name = "address")
-private String address_city;
-@Column(name = "education")
-private String education_degree;
-@Column(name = "experience")
-private int experience;
-
-@ManyToMany(cascade = { CascadeType.ALL })
-@JoinTable(
-    name = "Candidate_Skill", 
-    joinColumns = { @JoinColumn(name = "candidate_id") }, 
-    inverseJoinColumns = { @JoinColumn(name = "skill_id") }
-)
-Set<Skill> candidate_skill_set = new HashSet<>();
-
-@ManyToMany(cascade = { CascadeType.ALL })
-@JoinTable(
-    name = "Candidate_Manager", 
-    joinColumns = { @JoinColumn(name = "candidate_id") }, 
-    inverseJoinColumns = { @JoinColumn(name = "manager_id") }
-)
-Set<Manager> candidate_manager_set = new HashSet<>();
+import org.springframework.data.jpa.repository.Temporal;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
-
-public int getId() {
-	return id;
-}
-public Candidate() {
-	super();
-	// TODO Auto-generated constructor stub
-}
-public Candidate(int id, String name, String candidate_email_id, String phoneNumber, String candidate_password, Date dateOfBirth,
-		String address_city, String education_degree, int experience) {
-	super();
-	this.id = id;
-	this.name = name;
-	this.candidate_email_id = candidate_email_id;
-	this.phoneNumber = phoneNumber;
-	this.candidate_password = candidate_password;
-	this.dateOfBirth = dateOfBirth;
-	this.address_city = address_city;
-	this.education_degree = education_degree;
-	this.experience = experience;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-
-public String getPhoneNumber() {
-	return phoneNumber;
-}
-public void setPhoneNumber(String phoneNumber) {
-	this.phoneNumber = phoneNumber;
-}
-
-public Date getDateOfBirth() {
-	return dateOfBirth;
-}
-public void setDateOfBirth(Date dateOfBirth) {
-	this.dateOfBirth = dateOfBirth;
-}
-public String getAddress_city() {
-	return address_city;
-}
-public void setAddress_city(String address_city) {
-	this.address_city = address_city;
-}
-public String getEducation_degree() {
-	return education_degree;
-}
-public void setEducation_degree(String education_degree) {
-	this.education_degree = education_degree;
-}
-public int getExperience() {
-	return experience;
-}
-public void setExperience(int experience) {
-	this.experience = experience;
-}
-
-public Set<Skill> getCandidate_skill_set() {
-	return candidate_skill_set;
-}
-public void setCandidate_skill_set(Set<Skill> candidate_skill_set) {
-	this.candidate_skill_set = candidate_skill_set;
-}
-public Set<Manager> getCandidate_manager_set() {
-	return candidate_manager_set;
-}
-public void setCandidate_manager_set(Set<Manager> candidate_manager_set) {
-	this.candidate_manager_set = candidate_manager_set;
-}
-@Override
-public String toString() {
-	return "Candidate [id=" + id + ", name=" + name + ", candidate_email_id=" + candidate_email_id + ", phoneNumber="
-			+ phoneNumber + ", candidate_password=" + candidate_password + ", dateOfBirth=" + dateOfBirth
-			+ ", address_city=" + address_city + ", education_degree=" + education_degree + ", experience=" + experience
-			+ ", candidate_skill_set=" + candidate_skill_set + ", candidate_manager_set=" + candidate_manager_set + "]";
-}
-public String getCandidate_email_id() {
-	return candidate_email_id;
-}
-public void setCandidate_email_id(String candidate_email_id) {
-	this.candidate_email_id = candidate_email_id;
-}
-public String getCandidate_password() {
-	return candidate_password;
-}
-public void setCandidate_password(String candidate_password) {
-	this.candidate_password = candidate_password;
-}
+public class Candidate implements Serializable {
+	private int id;
+	private String name;
+	private String email_id;
+	private String phone_number;
+	private String password;
+	private String dob;
+	private String education;
+	private int experience;
+	private String address;
+	private List<String> skills;
+	
+		
+	
+	
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail_id() {
+		return email_id;
+	}
+	public void setEmail_id(String email_id) {
+		this.email_id = email_id;
+	}
+	public String getPhone_number() {
+		return phone_number;
+	}
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String  dob) {
+		this.dob = dob;
+	}
+	
+	public String getEducation() {
+		return education;
+	}
+	public void setEducation(String education) {
+		this.education = education;
+	}
+	public int getExperience() {
+		return experience;
+	}
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	@Override
+	public String toString() {
+		return "Candidate [id=" + id + ", name=" + name + ", email_id=" + email_id + ", phone_number=" + phone_number
+				+ ", password=" + password + ", dob=" + dob + ", education=" + education + ", experience=" + experience
+				+ ", address=" + address + "]";
+	}
+	public List<String> getSkills() {
+		return skills;
+	}
+	public void setSkills(List<String> skills) {
+		this.skills = skills;
+	}
 
 }

@@ -1,30 +1,14 @@
 package com.ats.pojo;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "skill")
-public class Skill {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+public class Skill implements Serializable{
 	private int id;
-	@Column(name = "name")
 	private String name;
 	
 	 
-    @ManyToMany(mappedBy="candidate_skill_set")
-    private Set<Candidate> candidatesSet= new HashSet<Candidate>();
-	
+    
 	
 	public int getId() {
 		return id;
@@ -47,10 +31,5 @@ public class Skill {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Set<Candidate> getCandidatesSet() {
-		return candidatesSet;
-	}
-	public void setCandidatesSet(Set<Candidate> candidatesSet) {
-		this.candidatesSet = candidatesSet;
-	}
+	
 }

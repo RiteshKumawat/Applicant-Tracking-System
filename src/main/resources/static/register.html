@@ -10,15 +10,18 @@
     <meta name="author" content="">
 
     <title>Ats - Register</title>
+	<script src="js/jquery.min.js"></script>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+ <link
+        href="css/fonts.css"
         rel="stylesheet">
-
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+<script src="js/register.js"></script>
+
+
 
 </head>
 
@@ -36,67 +39,68 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <span id = "message" class = "message">Hello span</span>
+                            
+                            <form class="user" id = "register">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" id="first-name"
                                             placeholder="First Name">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" class="form-control form-control-user" id="last-name"
                                             placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" id="email"
                                         placeholder="Email Address">
                                         
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="password" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                            id="repeat-password" placeholder="Repeat Password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Phone">
+                                        <input type="number" class="form-control form-control-user"
+                                            id="phone" placeholder="Phone">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Date of Birth">
+                                        <input type="date" class="form-control form-control-user"
+                                            id="dob" placeholder="Date of Birth">
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="text" class="form-control form-control-user" id="address"
                                         placeholder="Address">
                                  </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="education" class="form-control form-control-user" id="education"
                                         placeholder="Education">
                                  </div>
- 
- 	                               <div class="form-group">
-                                    <label for="myfile">Select a file: (Must be in PDF)</label>
-<input accept="application/pdf" type="file" id="myfile" name="myfile" >	
+                                 
+ 								<div class="form-group">
+                                    <input type="number" class="form-control form-control-user" id="experience"
+                                        placeholder="Experience (in years)">
                                  </div>
                                 
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+ 	                               <div class="form-group">
+                                    <label for="myfile">Select a file: (Must be in PDF)</label>
+<input accept="application/pdf" type="file" id="myfile" name="resume" >	
+                                 </div>
+                                
+                                <button id = "register-button" class="btn btn-primary btn-user btn-block">
                                     Register Account
-                                </a>
+                                </button>
                                 <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
                             </form>
                             <hr>
                             <div class="text-center">
