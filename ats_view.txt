@@ -1,0 +1,20 @@
+CREATE OR REPLACE VIEW candidate_manager_view as
+SELECT
+    c.email_id as candidate_email_id,
+    m.name,m.email_id as manager_email_id,m.phone_number,m.department
+FROM
+    manager m
+    JOIN candidate_manager cm ON cm.manager_id = m.id
+    JOIN candidate c ON c.id = cm.candidate_id
+ORDER BY c.name
+
+
+CREATE OR REPLACE VIEW candidate_skill_view as
+SELECT
+    c.email_id as candidate_email_id,
+    s.name
+FROM
+    skill s
+    JOIN candidate_skill cs ON cs.skill_id = s.id
+    JOIN candidate c ON c.id = cs.candidate_id
+ORDER BY c.name
