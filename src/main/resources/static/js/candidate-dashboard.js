@@ -5,6 +5,7 @@ getNotifications();
 function getNotifications()
 {
 var email = sessionStorage.getItem("email_id");
+$("#username-span").val(email);
 console.log(email);
 	 $.ajax({
                 url:"/dashboard/candidate/"+email+"",

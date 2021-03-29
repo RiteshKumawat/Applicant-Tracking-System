@@ -22,7 +22,7 @@ $("#register-button").click( send_register_request );
 
 
 function send_register_request(event) {
-event.prevenDefault();
+event.preventDefault();
 /*var data={
 
 var fullname = $("#first-name")+ $("#last-name");
@@ -86,25 +86,28 @@ formData.append('experience', $("#experience").val());
 
 
 
-console.log(formData);
+console.log("Data is : "+formData);
 console.log(JSON.stringify(formData));
 
 
 
 for(let [name, value] of formData) {
-  console.log(`${name} = ${value}`); // key1 = value1, then key2 = value2
+  console.log(`${name} = ${value}`); 
 }
+
 
     $.ajax({
         url : "register/add",
         type: 'POST',
         data: formData,
+           processData: false,
+    contentType: false,
        success:function(data){
-                    console.log(JSON.stringify(data));
+                    console.log("SON : "+JSON.stringify(data));
                 
                     if(data.success==true){
                     	console.log("success")
-                        window.location = "/login/candidate";
+                        window.location = "/";
                     }else{
                         msg = "Invalid username and password!";
                         console.log("error");
